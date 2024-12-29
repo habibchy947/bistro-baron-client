@@ -1,3 +1,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* Set height for the carousel */
+.carousel .slider-wrapper {
+  height: 300px; /* Default height */
+}
+@media (min-width: 768px) {
+  .carousel .slider-wrapper {
+    height: 500px; /* Height for tablets and above */
+  }
+}
+
+@media (min-width: 1024px) {
+  .carousel .slider-wrapper {
+    height: 600px; /* Height for desktops */
+  }
+}
+.carousel .thumbs-wrapper {
+  display: flex;
+  justify-content: center; /* Centers the thumbnails horizontally */
+  padding: 10px 0; /* Optional: Add spacing */
+}
+
+/* Center align the individual thumbnails */
+.carousel .thumbs {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Optional: Adjust spacing between thumbnails */
+}
+
+/* Optional: Style the thumbnails */
+.carousel .thumb {
+  border-radius: 5px;
+  border: 2px solid #ddd;
+  transition: border-color 0.3s;
+}
+
+.carousel .thumb.selected {
+  border-color: #ff5722; /* Highlight the selected thumbnail */
+}
+.carousel img {
+  background-size: cover;
+}
