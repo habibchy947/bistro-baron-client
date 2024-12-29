@@ -13,7 +13,7 @@ const PopularMenu = () => {
     }, [])
     console.log(popular)
     return (
-        <div className="py-14 w-11/12  mx-auto">
+        <div className="py-14 w-11/12 md:w-10/12  mx-auto">
             <Header
                 subHeading={'Check it out'}
                 heading={'Popular Items'}>

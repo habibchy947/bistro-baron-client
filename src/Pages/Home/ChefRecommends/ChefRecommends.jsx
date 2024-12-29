@@ -13,7 +13,7 @@ const ChefRecommends = () => {
     }, [])
     console.log(menus)
     return (
-        <div className="w-11/12 mx-auto">
+        <div className="w-11/12 md:w-10/12 mx-auto">
             <Header subHeading={'Should try'} heading={'Chef Recommends'}></Header>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-10">
                 {

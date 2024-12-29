@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 
 const MenuCard = ({ menu }) => {
-    const {image, recipe, name, price} = menu || {}
+    const {image, recipe, name, } = menu || {}
 
     return (
         <div className="card bg-base-100 rounded-sm p-0 shadow-xl">

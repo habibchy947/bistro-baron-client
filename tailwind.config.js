@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        serviceBg: "url('./src/assets/assets/home/chef-service.jpg')"
+        serviceBg: "url('./src/assets/assets/home/chef-service.jpg')",
+        FeaturedBg: "url('./src/assets/assets/home/featured.jpg')",
       }
     },
   },
