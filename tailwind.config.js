@@ -5,7 +5,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        serviceBg: "url('./src/assets/assets/home/chef-service.jpg')"
+      }
+    },
   },
   plugins: [
     // eslint-disable-next-line no-undef
