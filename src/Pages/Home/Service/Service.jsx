@@ -1,8 +1,8 @@
 
 const Service = () => {
     return (
-        <div className="bg-serviceBg p-28 bg-fixed w-11/12 md:w-10/12  mx-auto">
-            <div className="bg-white py-20 text-center px-40 space-y-2">
+        <div className="bg-serviceBg bg-cover p-8 md:p-20 lg:p-28 bg-fixed w-11/12 md:w-10/12  mx-auto">
+            <div className="bg-white py-7 md:py-14 lg:py-20 text-center px-7 md:px-16 lg:px-40 space-y-2">
                 <h2 className="text-4xl">Bistro Baron</h2>
                 <p>Lorem ipsum dolor sit amet
                     consectetur adipisicing elit.
