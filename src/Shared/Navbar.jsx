@@ -1,8 +1,9 @@
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
     const links = <>
-        <li><a>Home</a></li>
-        <li><a>Services</a></li>
+        <li><NavLink to='/'>Home</NavLink></li>
+        <li><NavLink to='/menu'>Our Menu</NavLink></li>
     </>
     return (
         <div className="navbar fixed max-w-screen-2xl z-10 bg-opacity-30 bg-black text-white px-3 py-0">

@@ -6,7 +6,9 @@ import { Navigation } from 'swiper/modules';
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { FaQuoteLeft } from "react-icons/fa";
+import { Rating } from "@smastrom/react-rating";
 
+import '@smastrom/react-rating/style.css'
 const Testimonials = () => {
     const [reviews, setReviews] = useState([])
     useEffect(() => {
@@ -17,20 +19,25 @@ const Testimonials = () => {
     }, [])
     console.log(reviews)
     return (
-        <div className="w-11/12 md:w-10/12 mx-auto py-28">
+        <div className="w-11/12 mx-auto py-28">
             <Header subHeading={'What Our Client Say'} heading={'Testimonials'} />
             <div>
                 <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
                     {
                         reviews.map(review => <SwiperSlide key={review._id}>
                             <div className="px-20 space-y-3 flex flex-col items-center justify-center text-center py-6">
+                                <Rating
+                                    style={{ maxWidth: 180 }}
+                                    value={review.rating}
+                                    readOnly
+                                />
                                 <p className="text-center text-6xl"><FaQuoteLeft /></p>
                                 <p>
                                     {review.details}
                                 </p>
                                 <h3 className="text-2xl text-[#D99904]">{review.name}</h3>
                             </div>
-                            </SwiperSlide>)
+                        </SwiperSlide>)
                     }
                 </Swiper>
             </div>

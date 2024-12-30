@@ -1,19 +1,13 @@
-import { useEffect, useState } from "react";
 import Header from "../../../Components/Header";
-import axios from "axios";
 import MenuItem from "../../../Components/MenuItem";
+import useMenu from "../../../Hooks/useMenu";
 const PopularMenu = () => {
-    const [popular, setPopular] = useState([])
-    useEffect(() => {
-        axios.get('menu.json')
-            .then(res => {
-                const menu = res.data.filter(product => product.category === 'popular')
-                setPopular(menu)
-            })
-    }, [])
+    const [menu] = useMenu()
+    const popular = menu.filter(item => item.category === 'popular')
+    
     console.log(popular)
     return (
-        <div className="py-14 w-11/12 md:w-10/12  mx-auto">
+        <div className="py-14 w-11/12  mx-auto">
             <Header
                 subHeading={'Check it out'}
                 heading={'Popular Items'}>
