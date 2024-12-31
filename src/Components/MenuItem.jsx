@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
 const MenuItem = ({item}) => {
-    const {image, recipe, name, price} = item
+    const {image, recipe, name, price} = item || {}
     return (
         <div className="flex gap-3">
             <img className="w-[118px] h-[104px] rounded-tr-full rounded-b-full" src={image} alt="" />

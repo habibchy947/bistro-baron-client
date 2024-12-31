@@ -17,7 +17,7 @@ const ChefRecommends = () => {
             <Header subHeading={'Should try'} heading={'Chef Recommends'}></Header>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-10">
                 {
-                    menus.map(menu => <MenuCard key={menu._id} menu={menu}/>)
+                    menus.map(menu => <MenuCard key={menu._id} item={menu}/>)
                 }
             </div>
         </div>

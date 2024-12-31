@@ -22,14 +22,14 @@ const Menu = () => {
             <Helmet>
                 <title>Bistro Baron | Menu</title>
             </Helmet>
-            <Cover image={menuBg} title={'Our menu'}></Cover>
+            <Cover img={menuBg} title={'our menu'}></Cover>
             <section className="w-11/12 mx-auto">
             <Header subHeading={"Don't miss"} heading={"Today's Offer"}></Header>
             <MenuCategory items={offered}></MenuCategory>
-            <MenuCategory items={dessert} coverImg={dessertBg} title={'Desserts'}></MenuCategory>
-            <MenuCategory items={pizza} coverImg={pizzaBg} title={'Pizza'}></MenuCategory>
-            <MenuCategory items={salad} coverImg={saladBg} title={'Salad'}></MenuCategory>
-            <MenuCategory items={soup} coverImg={soupBg} title={'soup'}></MenuCategory>
+            <MenuCategory items={dessert} img={dessertBg} title='dessert'></MenuCategory>
+            <MenuCategory items={pizza} img={pizzaBg} title='pizza'></MenuCategory>
+            <MenuCategory items={salad} img={saladBg} title='salad'></MenuCategory>
+            <MenuCategory items={soup} img={soupBg} title='soup'></MenuCategory>
             </section>
         </div>
     );
