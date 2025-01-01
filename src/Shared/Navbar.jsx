@@ -1,5 +1,5 @@
-import { NavLink } from "react-router-dom";
-
+import { Link, NavLink } from "react-router-dom";
+import profile from '../assets/assets/others/profile.png'
 const Navbar = () => {
     const links = <>
         <li><NavLink to='/'>Home</NavLink></li>
@@ -40,8 +40,9 @@ const Navbar = () => {
                     {links}
                 </ul>
             </div>
-            <div className="navbar-end">
-                <a className="btn">Button</a>
+            <div className="navbar-end flex items-center gap-2">
+                <Link to='/login' className="text-lg font-bold hover:text-[#D1A054]">Sign In</Link>
+                <img className="h-9 w-9 rounded-full" src={profile} alt="" />
             </div>
         </div>
     );

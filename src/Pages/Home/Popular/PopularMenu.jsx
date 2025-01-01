@@ -5,7 +5,6 @@ const PopularMenu = () => {
     const [menu] = useMenu()
     const popular = menu.filter(item => item.category === 'popular')
     
-    console.log(popular)
     return (
         <div className="py-14 w-11/12  mx-auto">
             <Header

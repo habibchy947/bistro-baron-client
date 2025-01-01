@@ -9,6 +9,7 @@ export default {
       backgroundImage: {
         serviceBg: "url('./src/assets/assets/home/chef-service.jpg')",
         FeaturedBg: "url('./src/assets/assets/home/featured.jpg')",
+        loginBg: "url('./src/assets/assets/others/authentication.png')",
       }
     },
   },

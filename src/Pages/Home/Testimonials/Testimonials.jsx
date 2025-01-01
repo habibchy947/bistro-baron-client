@@ -17,7 +17,6 @@ const Testimonials = () => {
                 setReviews(res.data)
             })
     }, [])
-    console.log(reviews)
     return (
         <div className="w-11/12 mx-auto py-28">
             <Header subHeading={'What Our Client Say'} heading={'Testimonials'} />

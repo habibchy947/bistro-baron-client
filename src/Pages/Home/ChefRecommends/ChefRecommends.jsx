@@ -11,7 +11,6 @@ const ChefRecommends = () => {
                 setMenus(res.data.slice(0,3))
             })
     }, [])
-    console.log(menus)
     return (
         <div className="w-11/12 mx-auto">
             <Header subHeading={'Should try'} heading={'Chef Recommends'}></Header>
