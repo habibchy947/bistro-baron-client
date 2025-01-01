@@ -8,6 +8,7 @@ import {
     validateCaptcha
 } from 'react-simple-captcha';
 import { useEffect, useRef, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
     const captchaRef = useRef(null)
@@ -37,6 +38,9 @@ const Login = () => {
     }
     return (
         <div className="bg-loginBg py-16 min-h-screen">
+            <Helmet>
+                <title>Bistro Baron || Sign in</title>
+            </Helmet>
             <div className="w-10/12 mx-auto shadow-xl grid grid-cols-1 md:grid-cols-2 items-center gap-10 py-12 px-20">
                 <div>
                     <img src={loginImg} alt="" />

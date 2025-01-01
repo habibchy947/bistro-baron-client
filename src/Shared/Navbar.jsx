@@ -1,6 +1,8 @@
 import { Link, NavLink } from "react-router-dom";
 import profile from '../assets/assets/others/profile.png'
+import useAuth from "../Hooks/useAuth";
 const Navbar = () => {
+    const { user, logOut } = useAuth()
     const links = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/menu'>Our Menu</NavLink></li>
@@ -41,8 +43,13 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end flex items-center gap-2">
-                <Link to='/login' className="text-lg font-bold hover:text-[#D1A054]">Sign In</Link>
-                <img className="h-9 w-9 rounded-full" src={profile} alt="" />
+                {
+                    user ? <button onClick={logOut} className="btn">LogOut</button> :
+                    <>
+                        <Link to='/login' className="text-lg font-bold hover:text-[#D1A054]">Sign In</Link>
+                        <img className="h-9 w-9 rounded-full" src={profile} alt="" />
+                    </>
+                }
             </div>
         </div>
     );
