@@ -1,13 +1,15 @@
 import { FcGoogle } from "react-icons/fc";
 import { IoLogoGithub } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import signUpImg from '../../assets/assets/others/authentication.gif'
 import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
 import useAuth from "../../Hooks/useAuth";
+import toast from "react-hot-toast";
 
 const SignUp = () => {
-    const {createUser} = useAuth()
+    const {createUser ,updateUserProfile} = useAuth()
+    const navigate = useNavigate()
     const {
         register,
         handleSubmit,
@@ -17,7 +19,14 @@ const SignUp = () => {
     const onSubmit = (data) => {
         console.log(data)
         createUser(data.email, data.password)
-        .then(result => console.log(result.user))
+        .then(result => {
+            console.log(result.user)
+            updateUserProfile(data.name, data.photo)
+            .then(()=>console.log('user profile updated'))
+            .catch(error => toast.error(error))
+            toast.success('account created successfully')
+            navigate('/')
+        })
         .catch(error => console.log(error))
     }
 
@@ -36,6 +45,13 @@ const SignUp = () => {
                             </label>
                             <input type="text" {...register("name", { required: true })} name='name' placeholder="enter your name" className="input rounded-sm" />
                             {errors.name && <span className="text-red-600">Name is required</span>}
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text font-semibold">Photo URL</span>
+                            </label>
+                            <input type="url" {...register("photo", { required: true })} name='photo' placeholder="enter photo URL" className="input rounded-sm" />
+                            {errors.photo && <span className="text-red-600">Photo URL is required</span>}
                         </div>
                         <div className="form-control">
                             <label className="label">
