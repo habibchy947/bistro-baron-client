@@ -10,7 +10,7 @@ const Navbar = () => {
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/menu'>Our Menu</NavLink></li>
         <li><NavLink to='/order/salad'>Order Food</NavLink></li>
-        <li className="hidden md:block"><NavLink to='/'>
+        <li className="hidden md:block"><NavLink to='/dashboard/cart'>
             <div className="border-2 relative border-[#BB8506] p-1 rounded-full bg-green-800 text-2xl font-bold flex justify-center items-center">
                 <TiShoppingCart />
             </div>
