@@ -1,33 +1,47 @@
-import { FcGoogle } from "react-icons/fc";
-import { IoLogoGithub } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 import signUpImg from '../../assets/assets/others/authentication.gif'
 import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
 import useAuth from "../../Hooks/useAuth";
 import toast from "react-hot-toast";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import SocialLogin from "../../Components/SocialLogin";
 
 const SignUp = () => {
-    const {createUser ,updateUserProfile} = useAuth()
+    const { createUser, updateUserProfile } = useAuth()
+    const axiosPublic = useAxiosPublic()
     const navigate = useNavigate()
     const {
         register,
         handleSubmit,
-
         formState: { errors },
     } = useForm()
     const onSubmit = (data) => {
-        console.log(data)
         createUser(data.email, data.password)
-        .then(result => {
-            console.log(result.user)
-            updateUserProfile(data.name, data.photo)
-            .then(()=>console.log('user profile updated'))
-            .catch(error => toast.error(error))
-            toast.success('account created successfully')
-            navigate('/')
-        })
-        .catch(error => console.log(error))
+            .then(result => {
+                console.log(result.user)
+                updateUserProfile(data.name, data.photo)
+                    .then(() => {
+                        // SAVE USERS DATA TO DATABASE
+                        const userInfo = {
+                            name : data.name,
+                            email: data.email
+                        } 
+                        // use axios public
+                        axiosPublic.post('/users', userInfo)
+                        .then(res => {
+                            console.log(res.data)
+                            if(res.data.insertedId){
+                                console.log('users data saved database successfully')
+                                console.log('user profile updated')
+                                toast.success('account created successfully')
+                                navigate('/')
+                            }
+                        })
+                    })
+                    .catch(error => toast.error(error))
+            })
+            .catch(error => console.log(error))
     }
 
     return (
@@ -70,11 +84,11 @@ const SignUp = () => {
                                     minLength: 6,
                                     maxLength: 20,
                                     pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/
-                                })} 
-                                name='password' 
-                                placeholder="enter your password" 
-                                className="input rounded-sm" 
-                                 />
+                                })}
+                                name='password'
+                                placeholder="enter your password"
+                                className="input rounded-sm"
+                            />
                             {errors.password?.type === "required" && (
                                 <p className="text-red-600">Password is required</p>
                             )}
@@ -93,11 +107,7 @@ const SignUp = () => {
                         </div>
                     </form>
                     <Link to='/login' className='text-[#D1A054] flex justify-center'>Already Registered? go to login</Link>
-                    <h2 className='text-center pt-2'>Or sign in with</h2>
-                    <div className='flex justify-center pt-4 gap-4'>
-                        <span className='p-2 rounded-full border-2 text-xl'><FcGoogle /></span>
-                        <span className='p-2 rounded-full border-2 text-xl'><IoLogoGithub /></span>
-                    </div>
+                    <SocialLogin></SocialLogin>
                 </div>
                 <div>
                     {/* <Lottie animationData={signUpLottie} loop={true}></Lottie> */}

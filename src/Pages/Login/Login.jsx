@@ -1,7 +1,5 @@
-import { Link, replace, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import loginImg from '../../assets/assets/others/authentication2.png'
-import { FcGoogle } from 'react-icons/fc';
-import { IoLogoGithub } from 'react-icons/io';
 import {
     loadCaptchaEnginge,
     LoadCanvasTemplate,
@@ -11,6 +9,7 @@ import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import useAuth from '../../Hooks/useAuth';
 import toast from 'react-hot-toast';
+import SocialLogin from '../../Components/SocialLogin';
 
 const Login = () => {
     const [disabled, setDisabled] = useState(true)
@@ -22,6 +21,7 @@ const Login = () => {
         loadCaptchaEnginge(6);
     }, [])
 
+    // form submition
     const handleFormSubmit = (e) => {
         e.preventDefault()
         const form = e.target
@@ -37,6 +37,7 @@ const Login = () => {
             .catch(error => console.log(error))
     }
 
+    // captcha validation
     const handleValidateCaptcha = (e) => {
         const captcha = e.target.value
         console.log(captcha)
@@ -47,6 +48,7 @@ const Login = () => {
             setDisabled(true)
         }
     }
+    
     return (
         <div className="bg-loginBg py-16 min-h-screen">
             <Helmet>
@@ -82,11 +84,7 @@ const Login = () => {
                         </div>
                     </form>
                     <Link to='/signup' className='text-[#D1A054] flex justify-center'>New here? Create an account</Link>
-                    <h2 className='text-center pt-2'>Or sign in with</h2>
-                    <div className='flex justify-center pt-4 gap-4'>
-                        <span className='p-2 rounded-full border-2 text-xl'><FcGoogle /></span>
-                        <span className='p-2 rounded-full border-2 text-xl'><IoLogoGithub /></span>
-                    </div>
+                    <SocialLogin></SocialLogin>
                 </div>
             </div>
         </div>

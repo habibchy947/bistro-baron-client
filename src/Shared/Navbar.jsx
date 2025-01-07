@@ -10,7 +10,7 @@ const Navbar = () => {
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/menu'>Our Menu</NavLink></li>
         <li><NavLink to='/order/salad'>Order Food</NavLink></li>
-        <li className="hidden md:block"><NavLink to='/dashboard/cart'>
+        <li className="hidden lg:block"><NavLink to='/dashboard/cart'>
             <div className="border-2 relative border-[#BB8506] p-1 rounded-full bg-green-800 text-2xl font-bold flex justify-center items-center">
                 <TiShoppingCart />
             </div>
@@ -52,7 +52,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end flex items-center gap-2">
-                <div className="relative md:hidden">
+                <div className="relative lg:hidden">
                     <NavLink to='/order/salad'>
                         <div className="border-2  border-[#BB8506] p-1 rounded-full bg-green-800 text-2xl font-bold flex justify-center items-center">
                             <TiShoppingCart />
