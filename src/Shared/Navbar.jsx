@@ -53,7 +53,7 @@ const Navbar = () => {
             </div>
             <div className="navbar-end flex items-center gap-2">
                 <div className="relative lg:hidden">
-                    <NavLink to='/order/salad'>
+                    <NavLink to='/dashboard/cart'>
                         <div className="border-2  border-[#BB8506] p-1 rounded-full bg-green-800 text-2xl font-bold flex justify-center items-center">
                             <TiShoppingCart />
                         </div>

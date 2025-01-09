@@ -5,15 +5,15 @@ import reviewImg from '../assets/assets/icon/addReview.png'
 import bookingImg from '../assets/assets/icon/myBoofking.png'
 import { MdEmail } from "react-icons/md";
 import useCart from "../Hooks/useCart";
+import useAdmin from "../Hooks/useAdmin";
 
 const Dashboard = () => {
     const { cart } = useCart()
-    // TODO: GET THE ADMIN VALUE FROM DATABASE
-    const isAdmin = true
+    const [isAdmin] = useAdmin()
     return (
         <div className="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-            <div className="drawer-content px-5 py-2 bg-[#E8E8E8]">
+            <div className="drawer-content bg-[#ffffff]">
 
                 {/* Page content here */}
                 <label htmlFor="my-drawer-2" className="btn drawer-button lg:hidden">
@@ -35,7 +35,7 @@ const Dashboard = () => {
                             <>
                                 <li className="text-lg font-semibold"><NavLink to='/dashboard/adminHome'><FaHome /> Admin Home</NavLink></li>
                                 <li className="text-lg font-semibold"><NavLink to='/dashboard/addItems'><FaUtensils /> Add Items</NavLink></li>
-                                <li className="text-lg font-semibold"><NavLink to='/dashboard/manageItems'><FaList /> Manage Items ({cart.length})</NavLink></li>
+                                <li className="text-lg font-semibold"><NavLink to='/dashboard/manageItems'><FaList /> Manage Items</NavLink></li>
                                 <li className="text-lg font-semibold"><NavLink to='/dashboard/manageBookings'><FaBook/> MAnage Bookings</NavLink></li>
                                 <li className="text-lg font-semibold"><NavLink to='/dashboard/allUsers'><FaUsers/> All Users</NavLink></li>
                             </>

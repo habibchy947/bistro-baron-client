@@ -4,8 +4,8 @@ import useAuth from "../Hooks/useAuth";
 import Loading from "../Components/Loading";
 
 const PrivateRoute = ({children}) => {
-    const location = useLocation()
     const {user, loading} = useAuth()
+    const location = useLocation()
     if(user){
         return children
     }
