@@ -5,13 +5,12 @@ import { MdEdit } from "react-icons/md";
 import Loading from "../../../Components/Loading";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 const ManageItems = () => {
     const [menu, loading, refetch] = useMenu()   
     const axiosSecure = useAxiosSecure()
-    const handleUpdateItem = () => {
-
-    }
+    
     const handleDeleteItem =(id) => {
         Swal.fire({
             title: "Are you sure?",
@@ -85,9 +84,9 @@ const ManageItems = () => {
                                             </td>
                                             <td>${item.price}</td>
                                             <td>
-                                                <button onClick={() => handleUpdateItem(item._id)} className="bg-[#D1A054] p-3 text-xl rounded-md text-white">
+                                                <Link to={`/dashboard/updateItems/${item._id}`} className="bg-[#D1A054] btn p-3 text-xl rounded-md text-white">
                                                     <MdEdit />
-                                                </button>
+                                                </Link>
                                             </td>
                                             <th>
                                                 <button onClick={() => handleDeleteItem(item._id)} className="bg-red-600 p-3 text-xl rounded-md text-white"><FaTrashAlt />
