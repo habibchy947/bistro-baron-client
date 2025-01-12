@@ -8,7 +8,7 @@ import useCart from "../Hooks/useCart";
 import useAdmin from "../Hooks/useAdmin";
 
 const Dashboard = () => {
-    const { cart } = useCart()
+    const  [cart ] = useCart()
     const [isAdmin] = useAdmin()
     return (
         <div className="drawer lg:drawer-open">
@@ -43,6 +43,7 @@ const Dashboard = () => {
                             <>
                                 <li className="text-lg font-semibold"><NavLink to='/dashboard/userHome'><FaHome /> User Home</NavLink></li>
                                 <li className="text-lg font-semibold"><NavLink to='/dashboard/reservation'><FaCalendar /> Reservation</NavLink></li>
+                                <li className="text-lg font-semibold"><NavLink to='/dashboard/paymentHistory'><FaCalendar /> Payment History</NavLink></li>
                                 <li className="text-lg font-semibold"><NavLink to='/dashboard/cart'><TiShoppingCart /> My Cart ({cart.length})</NavLink></li>
                                 <li className="text-lg font-semibold"><NavLink to='/dashboard/review'><img className="h-4 w-4" src={reviewImg} alt="" /> Add review</NavLink></li>
                                 <li className="text-lg font-semibold"><NavLink to='/dashboard/bookings'><img className="h-4 w-4" src={bookingImg} alt="" /> My Booking</NavLink></li>

@@ -5,7 +5,7 @@ import { TiShoppingCart } from "react-icons/ti";
 import useCart from "../Hooks/useCart";
 const Navbar = () => {
     const { user, logOut } = useAuth()
-    const {cart} = useCart()
+    const [cart] = useCart()
     const links = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/menu'>Our Menu</NavLink></li>

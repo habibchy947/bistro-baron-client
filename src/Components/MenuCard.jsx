@@ -11,7 +11,7 @@ const MenuCard = ({ item }) => {
     const location = useLocation()
     const navigate = useNavigate()
     const {user} = useAuth()
-    const {refetch} = useCart()
+    const [,refetch] = useCart()
     const axiosSecure = useAxiosSecure()
     const handleAddToCart= () => {
         if(user && user?.email){
@@ -71,7 +71,7 @@ const MenuCard = ({ item }) => {
                     alt="Shoes" />
             </figure>
             {
-                location?.pathname === '/order' && <p className="absolute bg-neutral text-white font-semibold px-4 py-1 rounded-md right-0 mr-4 mt-4">${price}</p>
+                location?.pathname === '/order/salad' && <p className="absolute bg-neutral text-white font-semibold px-4 py-1 rounded-md right-0 mr-4 mt-4">${price}</p>
 
             }
             <div className="card-body p-6 bg-slate-100 flex flex-col justify-center items-center text-center">
