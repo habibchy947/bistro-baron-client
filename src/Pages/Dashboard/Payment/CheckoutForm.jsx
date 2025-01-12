@@ -23,7 +23,7 @@ const CheckoutForm = () => {
             axiosSecure.post('/create-payment-intent', { price: totalPrice })
                 .then(res => {
                     setClientSecret(res.data.clientSecret)
-                    console.log(res.data.clientSecret)
+                    // console.log(res.data.clientSecret)
                 })
         }
     }, [axiosSecure, totalPrice])
@@ -40,15 +40,15 @@ const CheckoutForm = () => {
         if (card === null) {
             return
         }
-        const { error, paymentMethod } = await stripe.createPaymentMethod({
+        const { error } = await stripe.createPaymentMethod({
             type: 'card',
             card,
         })
         if (error) {
-            console.log('payment method error', error)
+            // console.log('payment method error', error)
             setError(error.message)
         } else {
-            console.log('Payment method', paymentMethod)
+            // console.log('Payment method', paymentMethod)
             setError('')
         }
 
@@ -63,11 +63,11 @@ const CheckoutForm = () => {
         })
 
         if (confirmError) {
-            console.log(confirmError, 'confirm error')
+            // console.log(confirmError, 'confirm error')
         } else {
-            console.log('payment intent', paymentIntent)
+            // console.log('payment intent', paymentIntent)
             if (paymentIntent.status === 'succeeded') {
-                console.log('transaction_id', paymentIntent.id)
+                // console.log('transaction_id', paymentIntent.id)
                 setTransactionId(paymentIntent.id)
 
                 const payment = {
@@ -80,7 +80,7 @@ const CheckoutForm = () => {
                     status: 'pending'
                 }
                 const res = await axiosSecure.post('/payment', payment)
-                console.log(res)
+                // console.log(res)
                 if (res.data?.paymentResult?.insertedId) {
                     refetch()
                     Swal.fire({

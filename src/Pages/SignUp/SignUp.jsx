@@ -18,8 +18,8 @@ const SignUp = () => {
     } = useForm()
     const onSubmit = (data) => {
         createUser(data.email, data.password)
-            .then(result => {
-                console.log(result.user)
+            .then(() => {
+                // console.log(result.user)
                 updateUserProfile(data.name, data.photo)
                     .then(() => {
                         // SAVE USERS DATA TO DATABASE
@@ -30,10 +30,10 @@ const SignUp = () => {
                         // use axios public
                         axiosPublic.post('/users', userInfo)
                         .then(res => {
-                            console.log(res.data)
+                            // console.log(res.data)
                             if(res.data.insertedId){
-                                console.log('users data saved database successfully')
-                                console.log('user profile updated')
+                                // console.log('users data saved database successfully')
+                                // console.log('user profile updated')
                                 toast.success('account created successfully')
                                 navigate('/')
                             }
@@ -41,7 +41,9 @@ const SignUp = () => {
                     })
                     .catch(error => toast.error(error))
             })
-            .catch(error => console.log(error))
+            .catch(() => {
+                // console.log(error)
+            })
     }
 
     return (

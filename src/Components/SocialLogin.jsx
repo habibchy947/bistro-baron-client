@@ -11,23 +11,22 @@ const SocialLogin = () => {
     const handleGoogle = () => {
         googleSignIn()
             .then(result => {
-                console.log(result.user)
+                // console.log(result.user)
                 const userInfo = {
                     name: result.user?.displayName,
                     email: result.user?.email
                 }
                 axiosPublic.post('/users', userInfo)
-                    .then(res => {
-                        console.log(res.data)
+                    .then(() => {
+                        // console.log(res.data)
                         navigate('/')
                     })
-                    .catch(err => {
-                        console.log(err)
+                    .catch(() => {
+                        // console.log(err)
                     })
             })
-            .catch(err =>
-                console.log(err)
-            )
+            .catch(() => {}) 
+                // console.log(err)
     }
     return (
         <div>

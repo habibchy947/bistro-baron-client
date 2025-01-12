@@ -21,7 +21,7 @@ const AddItems = () => {
             }
 
             const menuRes = await axiosSecure.post('/menu',menuItem)
-            console.log(menuRes)
+            // console.log(menuRes)
             if(menuRes.data.insertedId){
                 reset()
                 Swal.fire({

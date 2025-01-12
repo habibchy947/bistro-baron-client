@@ -25,7 +25,7 @@ const MenuCard = ({ item }) => {
             }
             axiosSecure.post('/carts', cartItem)
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
                 if(res.data.insertedId){
                     refetch()
                     Swal.fire({
@@ -37,8 +37,8 @@ const MenuCard = ({ item }) => {
                       });
                 }
             })
-            .catch(err => {
-                console.log(err)
+            .catch(() => {
+                // console.log(err)
             })
         }
         else{

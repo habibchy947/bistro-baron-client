@@ -20,7 +20,7 @@ const UpdatedItems = () => {
         }
 
         const menuRes = await axiosSecure.patch(`/menu/${_id}`, menuItem)
-        console.log(menuRes)
+        // console.log(menuRes)
         if (menuRes.data.modifiedCount > 0) {
             reset()
             Swal.fire({

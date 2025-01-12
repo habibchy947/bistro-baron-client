@@ -34,7 +34,7 @@ const AllUsers = () => {
             if (result.isConfirmed) {
                 axiosSecure.patch(`/users/admin/${user._id}`)
                 .then(res => {
-                    console.log(res.data)
+                    // console.log(res.data)
                     if(res.data.modifiedCount > 0){
                         refetch()
                         Swal.fire({
@@ -63,7 +63,7 @@ const AllUsers = () => {
             if (result.isConfirmed) {
                 axiosSecure.delete(`/users/${id}`)
                     .then(res => {
-                        console.log(res.data)
+                        // console.log(res.data)
                         if (res.data.deletedCount) {
                             refetch()
                             Swal.fire({
@@ -73,8 +73,8 @@ const AllUsers = () => {
                             });
                         }
                     })
-                    .catch(err => {
-                        console.log(err)
+                    .catch(() => {
+                        // console.log(err)
                     })
             }
         });

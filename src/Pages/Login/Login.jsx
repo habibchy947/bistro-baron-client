@@ -27,20 +27,22 @@ const Login = () => {
         const form = e.target
         const email = form.email.value
         const password = form.password.value
-        console.log(email, password)
+        // console.log(email, password)
         signInUser(email, password)
-            .then(result => {
-                console.log(result.user)
+            .then(() => {
+                // console.log(result.user)
                 toast.success('user logged in successfully')
                 navigate(from, { replace: true })
             })
-            .catch(error => console.log(error))
+            .catch(() => {
+                // console.log(error)
+            })
     }
 
     // captcha validation
     const handleValidateCaptcha = (e) => {
         const captcha = e.target.value
-        console.log(captcha)
+        // console.log(captcha)
 
         if (validateCaptcha(captcha) == true) {
             setDisabled(false)
