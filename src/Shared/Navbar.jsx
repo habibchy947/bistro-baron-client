@@ -3,13 +3,21 @@ import profile from '../assets/assets/others/profile.png'
 import useAuth from "../Hooks/useAuth";
 import { TiShoppingCart } from "react-icons/ti";
 import useCart from "../Hooks/useCart";
+import useAdmin from "../Hooks/useAdmin";
 const Navbar = () => {
     const { user, logOut } = useAuth()
     const [cart] = useCart()
+    const [isAdmin] = useAdmin()
     const links = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/menu'>Our Menu</NavLink></li>
         <li><NavLink to='/order/salad'>Order Food</NavLink></li>
+        {
+            user && isAdmin && <li><NavLink to='/dashboard/adminHome'>Dashboard</NavLink></li>
+        }
+        {
+            user && !isAdmin && <li><NavLink to='/dashboard/userHome'>Dashboard</NavLink></li>
+        }
         <li className="hidden lg:block"><NavLink to='/dashboard/cart'>
             <div className="border-2 relative border-[#BB8506] p-1 rounded-full bg-green-800 text-2xl font-bold flex justify-center items-center">
                 <TiShoppingCart />

@@ -16,7 +16,7 @@ const PaymentHistory = () => {
     return (
         <div>
             <Header subHeading='At a Glance' heading='Payment History'></Header>
-            <div className="overflow-x-auto mt-5  rounded-t-lg">
+            <div className="overflow-x-auto mt-5  rounded-t-lg w-10/12 mx-auto">
                                 <table className="table ">
                                     {/* head */}
                                     <thead className="bg-[#D1A054] text-white font-semibold uppercase">
